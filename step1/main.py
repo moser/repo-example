@@ -50,7 +50,7 @@ class UserRepo:
         #   - DB default (eg PK sequences) are resolved ASAP
 
 
-# service.py
+# main.py
 from sqlalchemy import orm as _orm
 
 # from repo import UserRepo
@@ -59,7 +59,7 @@ from sqlalchemy import orm as _orm
 def main():
     from sqlalchemy import create_engine
 
-    engine = create_engine("sqlite://", echo=True, future=True)
+    engine = create_engine("sqlite://", future=True)
     registry.metadata.create_all(engine)
     session = _orm.Session(engine)
 
